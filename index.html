@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compass Overlay</title>
+    <style>
+        /* Fullscreen iframe to load the background website */
+        #background-site {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: 0;
+        }
+
+        /* Compass overlay styling for desktop */
+        #compass-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px; /* Increased size */
+            height: 800px; /* Increased size */
+            pointer-events: none;
+            z-index: 1000;
+            background-image: url('https://lh5.googleusercontent.com/5SWZemJiwH05gTUEqE4PcTC1OYhPZB38mOmrux7prgoSJ4SXG3t6ei1hqqV8DD2FDYME-j86EsqSFCRjrln4WwwJj1MtpDSbZL4DLruUZchaH7DTQ4JZdKVCtOVqpSWBsA=w739');
+            background-size: 100% 100%; /* Forces the image to fill the div */
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Adjust the compass size for smaller screens */
+        @media (max-width: 768px) {
+            #compass-overlay {
+                width: 600px;
+                height: 600px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #compass-overlay {
+                width: 400px;
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background iframe to load the website -->
+    <iframe id="background-site" src="https://dev.project-flight.com"></iframe>
+
+    <!-- Compass overlay -->
+    <div id="compass-overlay"></div>
+
+    <script>
+    function rotateCompass(heading) {
+        const compass = document.querySelector('#compass-overlay');
+        compass.style.transform = `translate(-50%, -50%) rotate(${heading}deg)`;
+    }
+
+    // Example usage:
+    // rotateCompass(45); // Rotate 45 degrees
+    </script>
+</body>
+</html>
