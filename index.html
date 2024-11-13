@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compass Overlay</title>
+    <title>PFTracker Compass</title>
     <style>
         /* Fullscreen iframe to load the background website */
         #background-site {
@@ -16,18 +16,18 @@
             z-index: 0;
         }
 
-        /* Compass overlay styling for desktop */
+        /* Compass overlay styling */
         #compass-overlay {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 800px; /* Increased size */
-            height: 800px; /* Increased size */
+            width: 250px; /* Default size for desktop */
+            height: 250px; /* Default size for desktop */
             pointer-events: none;
             z-index: 1000;
             background-image: url('https://lh5.googleusercontent.com/5SWZemJiwH05gTUEqE4PcTC1OYhPZB38mOmrux7prgoSJ4SXG3t6ei1hqqV8DD2FDYME-j86EsqSFCRjrln4WwwJj1MtpDSbZL4DLruUZchaH7DTQ4JZdKVCtOVqpSWBsA=w739');
-            background-size: 100% 100%; /* Forces the image to fill the div */
+            background-size: contain; /* Makes the image fit without distorting */
             background-repeat: no-repeat;
             background-position: center;
         }
@@ -35,15 +35,15 @@
         /* Adjust the compass size for smaller screens */
         @media (max-width: 768px) {
             #compass-overlay {
-                width: 600px;
-                height: 600px;
+                width: 200px;
+                height: 200px;
             }
         }
 
         @media (max-width: 480px) {
             #compass-overlay {
-                width: 400px;
-                height: 400px;
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
